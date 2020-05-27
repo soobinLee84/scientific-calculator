@@ -1,0 +1,54 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.background {
+    background-color: rgb(214, 214, 214, 0.2);
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+
+}
+
+
+.container {
+    min-height: 670px;
+
+}
+
+.ment {
+    padding-top: 80px;
+}
+
+.login_box {
+    background-color: white;
+    width: 677px;
+    height: 324px;
+    position: relative;
+    top: 50px;
+    left: 18%;
+}
+
+.form-group,
+.login_btn {
+    width: 500px;
+    height: 45px;
+}
+
+.loginbox {
+    position: relative;
+    top: 60px;
+    left: 82px;
+}
+
+.auto_login {
+    position: relative;
+    top: 60px;
+    right: 540px;
+}
+
+.findId{
+	position:relative;
+	top:95px;
+	right:120px;
+}
+.findId a:hover{
+	text-decoration:none;
+}

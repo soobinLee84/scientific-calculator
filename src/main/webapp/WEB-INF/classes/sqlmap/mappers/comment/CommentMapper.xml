@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="CommentMapper">
+<insert id = "insertComment" parameterType="com.celeb.site.comment.vo.CommentVo" useGeneratedKeys="true" keyProperty="id">
+INSERT INTO comment(
+user_id,
+content,
+reg_date,
+ip_address,
+board_idx,
+user_idx
+)
+VALUES(
+#{userId},
+#{content},
+regDate(),
+#{ipAddress},
+#{boardIdx},
+#{userIdx}
+)
+
+</insert>
+</mapper>

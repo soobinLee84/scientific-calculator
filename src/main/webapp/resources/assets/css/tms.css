@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+	    
+}
+#tekbeCompnayList, #invoiceNumberText {
+    width: 500px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #0000ff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+}
+
+#tekbeCompnayName, #invoiceNumber{
+  color:black; 
+  font-weight: bold; 
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+#myButton1 {
+  background: #6893b0;
+  background-image: -webkit-linear-gradient(top, #6c5ce7, #fd79a8);
+  background-image: -moz-linear-gradient(top, #6c5ce7, #fd79a8);
+  background-image: -ms-linear-gradient(top, #6c5ce7, #fd79a8);
+  background-image: -o-linear-gradient(top, #6c5ce7, #fd79a8);
+  background-image: linear-gradient(to bottom, #6c5ce7, #fd79a8);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  color: #ffffff;
+  font-size: 20px;
+  border:0;
+  border-radius:10px;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+}
+
+#myButton1:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #fd79a8, #6c5ce7);
+  background-image: -moz-linear-gradient(top, #fd79a8, #6c5ce7);
+  background-image: -ms-linear-gradient(top, #fd79a8, #6c5ce7);
+  background-image: -o-linear-gradient(top, #fd79a8, #6c5ce7);
+  background-image: linear-gradient(to bottom, #fd79a8, #6c5ce7);
+  text-decoration: none;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 34%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.content_tmp{
+	width:100%;
+	min-height:1100px;
+/* 	background-image:url('../assets/img/patterns_wall.png'); */
+	
+}
+.content_map_inner{
+	position:relative;
+	top:150px;
+	left:33%;
+
+}
+.content_map_inner_2{
+	
+}

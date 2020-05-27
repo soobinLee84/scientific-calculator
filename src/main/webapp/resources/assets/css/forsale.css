@@ -1,0 +1,166 @@
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+label {
+    display: inline-block;
+    padding: 10px;
+    background: #efefef;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 20px;
+    min-height: 34px;
+    min-width: 40px;
+}
+
+input[type="radio"]:checked+label {
+    background: #4c61fe;
+    color: #fff;
+}
+
+.conbox {
+    z-index: 0;
+    width: 100%;
+    min-height: 1600px;
+
+    margin: 0 auto;
+    display: none;
+}
+
+.tab_content {
+    margin-top: 70px;
+}
+
+input[id="tab01"]:checked~.con1 {
+    display: block;
+}
+
+input[id="tab02"]:checked~.con2 {
+    display: block;
+}
+
+input[id="tab03"]:checked~.con3 {
+    display: block;
+}
+
+input[id="tab04"]:checked~.con4 {
+    display: block;
+}
+
+input[id="tab05"]:checked~.con5 {
+    display: block;
+}
+
+input[id="tab06"]:checked~.con6 {
+    display: block;
+}
+
+input[id="tab07"]:checked~.con7 {
+    display: block;
+}
+
+input[id="tab08"]:checked~.con8 {
+    display: block;
+}
+
+input[id="tab09"]:checked~.con9 {
+    display: block;
+}
+
+input[id="tab10"]:checked~.con10 {
+    display: block;
+}
+
+input[id="tab11"]:checked~.con11 {
+    display: block;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    border-top: 1px solid #ccc;
+    padding: 35px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+* {
+    box-sizing: border-box;
+
+    -webkit-box-sizing: border-box;
+
+    -moz-box-sizing: border-box;
+}
+
+/******
+
+// 뭐 이렇게 특정 class만 지정을 해도 되고..
+
+.responsive {
+
+    box-sizing: border-box;
+
+    -webkit-box-sizing: border-box;
+
+    -moz-box-sizing: border-box;
+
+} 
+
+*******/
+
+.responsive {
+    padding: 6px 6px;
+    float: left;
+    width: 25%;
+}
+
+
+.title {
+    font-size: 13px;
+}
+
+.ment_wrap {
+    position: relative;
+    bottom: 19px;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 50%;
+        margin: 6px 0;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*pagination css*/
+.pagination {
+    margin-bottom: 42px;
+    position: relative;
+    left: 40%;
+}

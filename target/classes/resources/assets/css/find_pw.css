@@ -1,0 +1,15 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.wrap{
+	min-height:900px;
+	width:40%;
+	margin: 0 auto;
+	margin-top:100px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.findPwMent{
+	text-align:center;
+	margin:0 auto;
+	margin-bottom:15px;
+}

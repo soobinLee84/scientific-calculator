@@ -1,0 +1,31 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
+.wrap {
+    min-height: 800px;
+    background-color: #ebebeb;
+    position: relative;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.findIdMent {
+    padding-top: 4%;
+    text-align: center;
+}
+
+.emailForm {
+    width: 40%;
+    left: 20%;
+    position: relative;
+    left: 30%;
+    top: 100px;
+}
+
+.findPw a:hover {
+    text-decoration: none;
+}
+
+.findPw a:clicked {
+    text-decoration: none;
+}
+

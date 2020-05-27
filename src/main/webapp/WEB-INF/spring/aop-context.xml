@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- servlet-context에도 동일 하게 넣어줌...servlet-context와 spring-context와 차이가  있어서-->
+	<!-- java @Aspect  사용시... 주의: xml방식과 @Aspect 사용시 xml방식은 씹어버림...
+	       xml에서 설정 한 aop트랜젝션 같은거 씹어 버리는 수가 있음...
+	-->
+    <bean id="logAdviceAop" class="com.celeb.site.common.aop.LogAdviceAop" />
+
+    <!-- <aop:around 사용용도에 맞게 변경 하던지 추가 하자 -->
+    <aop:config>
+        <aop:aspect id="publicLogger" ref="logAdviceAop">
+            <aop:pointcut id="logAdvice" expression="execution(* com.celeb.site..dao.*Dao.*(..))"/>
+            <aop:around pointcut-ref="logAdvice" method="logTargetParam"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--
+        ===== Helper 패키지 내의 객체들에 대한 의존성 주입 설정 =====
+        - 이 곳에서 명시된 클래스들에 대한 객체는 컨트롤러에서 자동 할당된다.
+    -->
+    <!-- Helper 패키지 객체 주입 -->
+    <bean id="web" class="com.celeb.site.common.util.WebHelper" scope="singleton" />
+    <bean id="page" class="com.celeb.site.common.util.PageHelper" scope="singleton" />
+    <bean id="regex" class="com.celeb.site.common.util.RegexHelper" scope="singleton" />
+	<bean id="util" class="com.celeb.site.common.util.Util" scope="singleton" /> 
+    <bean id="smtpa" class="com.celeb.site.common.util.SMTPAuthenticator" scope="singleton" />
+    <bean id="mail" class="com.celeb.site.common.util.MailHelper" scope="singleton" />
+    
+    
+
+
+
+
+</beans>

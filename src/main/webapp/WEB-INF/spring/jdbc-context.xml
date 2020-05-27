@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+                <value>classpath:../property/${spring.profiles.active}/db/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+   	<!-- HikaraiCp jdbc -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="${jdbc.driverClass}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxLifetime" value="180000"/>
+	</bean>
+
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+         <constructor-arg ref="hikariConfig"/>
+     </bean>
+
+  <!--  AOP 기반한 트랜잭션 동작의 설정을 활성화한다. ( Spring JDBC 관련 maven 설정필요 ) AOP설정은  aop-context에서-->
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+       <property name="dataSource" ref="dataSource"/>
+   </bean>
+
+   <tx:annotation-driven/>
+
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" rollback-for="Exception"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--root컨텍스트의 자원(빈은) 공유가능 역으로는 불가능 [서비스 트랜젝션.]
+      동일한 빈존재시 servletContext와 rootcontext중 servletcontext 자원이 우선권을 갖는다.
+    전체 패키지로 잡을시 서비스오류 통과
+    -->
+    <aop:config>
+        <aop:pointcut id="requiredTx" expression="execution(* com.itwinner.webmemo..service.impl.*Impl.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="requiredTx" />
+    </aop:config>
+
+</beans>

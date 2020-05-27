@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+        <property name="dataSource" ref="dataSource"></property>
+<!--         이 하위 디렉터리의 클래스들은 모두 myBatis Mapper XML에서 parameter type 이나 result Type으로 사용할 수 있다 -->
+        <property name="typeAliasesPackage" value="com.celeb.site" />
+        <property name="configLocation" value="classpath:/sqlmap/config/mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath:/sqlmap/mappers/**/*Mapper.xml" />
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" >
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+
+</beans>

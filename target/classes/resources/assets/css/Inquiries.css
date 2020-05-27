@@ -1,0 +1,13 @@
+.mainBanner {
+    min-height: 505px;
+/*     background-image: url('../img/m04_02_01.jpg'); */
+}
+
+.explain {
+    text-align: center;
+}
+
+.explain_2 {
+    text-align: center;
+    background-color: #f5f5f5;
+}

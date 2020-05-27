@@ -1,0 +1,37 @@
+.container{
+	width:100%;
+	min-height:800px;
+	margin:0 auto;
+
+}
+
+#board{
+	margin-top:20px;
+}
+.content{
+	position:relative;
+	margin:0 auto;
+	top:130px;
+	left:10%;
+}
+
+.ment{
+
+	width:84%;
+	height:60px;
+	font-size:12px;
+	color:white;
+	background-color:#a29bfe;
+	opacity: 0.7;
+	margin-bottom:18px;
+}
+
+.btngroup{
+	position:relative;
+	top:14px;
+	left:-18%;
+}
+
+.title{
+	
+}

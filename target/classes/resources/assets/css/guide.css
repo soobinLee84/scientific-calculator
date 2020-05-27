@@ -1,0 +1,72 @@
+.title {
+    width: 100%;
+    height: 503px;
+    background-image: url('../img/introduce_index01.jpg');
+}
+
+.introduce {
+    position: relative;
+    left: 21%;
+    top: -10px;
+
+}
+
+.introduce_2 {
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.introduce_3 {
+    text-align: center;
+}
+
+.introduce_4 {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.introduce_5 {
+    text-align: center;
+}
+
+.introduce_6 {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+
+.introduce_7 {
+
+    text-align: center;
+}
+
+.introduce_8 {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.introduce_9 {
+    background-color: #f2e6d6;
+    text-align: center;
+}
+
+.introduce_10 {
+    text-align: center;
+}
+
+.introduce_11 {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.introduce_12 {
+
+    text-align: center;
+}
+
+.introduce_13 {
+    background-image: url('../img/introduce_index15_hiceleb.jpg');
+    text-align: center;
+    width: 100%;
+    height: 463px;
+}

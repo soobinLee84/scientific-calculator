@@ -1,0 +1,55 @@
+.wrap {
+    width: 100%;
+    min-height: 1300px;
+    background-color: whitesmoke;
+}
+
+.celeb_start {
+    width: 34%;
+    padding-top: 70px;
+    margin: 0 auto;
+}
+
+.ment {
+    text-align: center;
+    margin: 2px 0 12px 0;
+}
+
+.pt-li input {
+    float: left;
+    display: none;
+
+}
+
+
+
+.pt-li img {
+    float: left;
+    padding: 3px;
+    width: 16.3%;
+    height: 16.3%;
+    padding-bottom: 22px;
+}
+
+.pt-ul {
+    float: left;
+    list-style: none;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.join {
+    margin-top: 15px;
+
+}
+
+.checkbox {
+    margin-top: 3px;
+}
+
+/*특이사항*/
+.joinSpec {
+	position:realative !important;
+	bottom:20px !important;
+}

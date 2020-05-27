@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="BoardMapper">
+
+	
+	<!-- 게시판 조회. -->
+	<select id = "getBoardList" parameterType="com.celeb.site.member.vo.MemberVo" resultType="com.celeb.site.board.vo.BoardVo">
+		SELECT
+		board_idx,title, content, reg_date, user_id, count FROM board
+		ORDER BY reg_date DESC
+		LIMIT #{LimitStart}, #{ListCount}
+	</select>
+
+	<!-- 게시판 작성 -->
+	  <insert id="addBoard" parameterType="com.celeb.site.member.vo.MemberVo"  keyProperty="boardIdx" useGeneratedKeys="true">
+        insert into board ( title, content, user_id, reg_date)
+  		values ( #{title},#{content},#{userId},now() )
+    </insert>
+    
+    	<!-- 게시판 단일 조회. -->
+	<select id = "getBoardItem" parameterType="com.celeb.site.board.vo.BoardVo" resultType="com.celeb.site.board.vo.BoardVo">
+		SELECT * FROM board
+		WHERE board_idx=#{boardIdx}
+		ORDER BY reg_date DESC 
+	</select>
+	
+	   	<!-- 게시판 수정. -->
+	<update id = "editBoard" parameterType="com.celeb.site.board.vo.BoardVo" >
+		UPDATE board SET content=#{content}
+		WHERE user_id=#{userId} AND board_idx=#{boardIdx}
+	</update>
+	
+	<!-- 자신의 게시물인지 검사한다 -->
+	<select id="CountByMemberId" parameterType="com.celeb.site.board.vo.BoardVo" resultType="int">
+		SELECT COUNT(board_idx) FROM board
+		WHERE  board_idx=#{boardIdx} AND user_id=#{userId}
+	</select>
+	
+	<!-- 게시물을 삭제한다 -->
+	<delete id="deleteBoard" parameterType="com.celeb.site.board.vo.BoardVo" >
+			DELETE FROM board
+			WHERE board_idx=#{boardIdx}
+	</delete>
+	
+	<!-- 게시판 전체 개수. -->
+	<select id="totalBoardPage"
+		parameterType="com.celeb.site.board.vo.BoardVo" resultType="int">
+		SELECT COUNT(*) FROM board
+	</select>
+	
+	<!-- 게시판 조회수 업데이트 -->
+	<update id = "updateCount" parameterType="int">
+	UPDATE board
+	SET count = count + 1
+	WHERE board_idx = #{boardIdx}
+	</update>
+	
+</mapper>

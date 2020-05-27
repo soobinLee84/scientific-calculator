@@ -1,0 +1,424 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/*scrollbar design*/
+::-webkit-scrollbar {
+    background: #eeeeee;
+    width: 10px;
+    float: left;
+    position: absolute;
+    left: 0;
+    height: 5px;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+
+b,
+u,
+i,
+center,
+
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+
+fieldset,
+form,
+label,
+legend,
+
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+
+article,
+aside,
+canvas,
+details,
+embed,
+
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+
+time,
+mark,
+audio,
+video {
+
+    margin: 0;
+
+    padding: 0;
+
+    border: 0;
+
+    font-size: 100%;
+
+    font: inherit;
+
+    vertical-align: baseline;
+
+}
+
+.login,
+.join {
+    position: relative;
+    top: -1px;
+    right: 15px;
+    font-size: 11px;
+    margin: 6px;
+    padding-left: 3px;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-decoration: none !important;
+    columns: black;
+}
+
+#topMenu ul {
+    text-decoration: none;
+}
+
+/*drop_menu*/
+#menu {
+    width: 100%;
+    height: 64px;
+    background-color: blue;
+    z-index: 10000;
+}
+
+#topMenu {
+    height: 64px;
+    width: 100%;
+    /* [변경] 하위 메뉴와 동일하게 맞춤 */
+    position: relative;
+    padding-top: 15px;
+    padding-left: 40px;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+/* [추가] 늘어난만큼 배경색도 보이도록 수정 */
+
+
+#topMenu ul {
+    /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+#topMenu ul li {
+    /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
+    color: white;
+    background-color: #ffffff;
+    float: left;
+    line-height: 26px;
+    vertical-align: middle;
+    text-align: center;
+    -position: relative;
+
+}
+
+
+.menuLink,
+.submenuLink {
+    /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
+    text-decoration: none;
+    display: block;
+    width: 150px;
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+
+}
+
+.menuLink {
+    /* 상위 메뉴의 글씨색을 흰색으로 설정 */
+    color: #010101;
+
+}
+
+.topMenuLi:hover .menuLink {
+    /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+    color: #4c61fe;
+    text-decoration: none !important
+}
+
+.longLink {
+    /* 좀 더 긴 메뉴 스타일 설정 */
+    width: 100px;
+
+}
+
+.submenuLink {
+    /* 하위 메뉴의 a 태그 스타일 설정 */
+    color: #2d2d2d;
+    background-color: #ffffff;
+    /* [변경] 배경색 변경 */
+    -border: solid 1px black;
+    text-decoration: none !important;
+    margin-top: 10px;
+
+}
+
+.submenu {
+    /* 하위 메뉴 스타일 설정 */
+    position: absolute;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    width: 100%;
+    left: 0;
+    background-color: #ffffff;
+    /* [추가] 하위 메뉴 전체에 배경색 설정 */
+    top: 61px;
+    padding-left: 210px !important;
+
+
+}
+
+.submenu li {
+    display: inline-block;
+
+
+}
+
+.topMenuLi:hover .submenu {
+
+    border-top: 1px solid rgba(236, 231, 231, 0.8);
+    border-bottom: 1px solid rgba(236, 231, 231, 0.8);
+    height: 60px;
+
+
+}
+
+.submenuLink:hover {
+    color: #4c61fe;
+
+
+}
+
+
+#footer {
+    width: 100%;
+    height: 358px;
+    background-color: #373d3f;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+}
+
+#footer li {
+    float: left !important;
+    list-style: none;
+    padding-left: 20px;
+    color: white;
+    font-weight: 200;
+    margin-top: 2px;
+}
+
+.contents {
+    margin: 0 auto;
+    border-bottom: 0.5px solid white;
+    width: 100%;
+    height: 30px;
+    display: block;
+
+}
+
+.contents_2 {
+    margin: auto;
+    position: relative;
+    left: 20%;
+}
+
+.contents_2 ul {
+    margin-bottom: 1px;
+}
+
+.contents a,
+.contents a:hover {
+    text-decoration: none !important;
+    font-family: 'Noto Sans KR',
+        sans-serif;
+    color: white;
+}
+
+.footer_bottom {
+    margin: auto;
+    position: relative;
+    top: 10%;
+    left: 21%;
+    color: #ebebeb;
+}
+
+.custom_call {
+
+    font-weight: 700;
+    font-size: 35px;
+    font-family: 'Arial';
+    padding-top: 9px;
+    line-height: 1.1;
+}
+
+.footer_button {
+    width: 685px;
+    height: 222px;
+    position: absolute;
+    top: 12px;
+    left: 30%;
+
+}
+
+.footer_button button {
+    margin-top: 12px;
+}
+
+.celeb_open {
+    background-color: #4f5ef5;
+    color: white;
+    width: 530px;
+    height: 60px;
+    border: 0;
+}
+
+.celeb_question {
+    background-color: #373d3f;
+    color: white;
+    width: 530px;
+    height: 60px;
+    border: solid 1px white;
+}
+
+.footer_button a,
+.footer_button a:hover {
+    text-decoration: none;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+
+    display: block;
+
+}
+
+body {
+
+    line-height: 1;
+
+}
+
+ol,
+ul {
+
+    list-style: none;
+
+}
+
+blockquote,
+q {
+
+    quotes: none;
+
+}
+
+blockquote:before,
+blockquote:after,
+
+q:before,
+q:after {
+
+    content: '';
+
+    content: none;
+
+}
+
+table {
+
+    border-collapse: collapse;
+
+    border-spacing: 0;
+
+}

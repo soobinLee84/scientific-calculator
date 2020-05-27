@@ -1,0 +1,137 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.wrap {
+    width: 100%;
+    min-height: 1100px;
+    background-color: #ececec;
+    margin-top:80px;
+
+}
+
+.container {
+    width: 1200px;
+    min-height: 878px;
+
+}
+
+.contents_2 {
+    position: relative;
+    padding-top: 2%;
+    left: 20%;
+
+}
+
+.title {
+    font-family: 'Nanum Barun Gothic';
+    width: 1170px;
+    height: 42px;
+    background-color: #ececec;
+    padding-right: 10px;
+    position: relative;
+    top: 10px;
+
+}
+
+.user {
+    width: 1170px;
+    height: 42px;
+    background-color: #fbfbfb;
+    position: relative;
+    top: 10px;
+    font-size: 13px;
+    padding: 10px;
+    color: #777;
+    border: 1px solid #ddd
+}
+
+.question {
+    background-color: #fbfbfb;
+    width: 1170px;
+    min-height: 55px;
+    margin-top: 50px;
+    font-size: 13px;
+    padding: 10px;
+    color: #3c3c3c;
+    border: 1px solid #ddd;
+}
+
+.reg_date {
+    padding-right: 10px;
+}
+
+.comment_count {
+    color: orangered;
+
+}
+
+.total_comment {
+    border-bottom: 1px solid rgb(51, 51, 51);
+    width: 45px;
+    font-size: 17px;
+    margin-top: 40px;
+}
+
+.answer {
+    background-color: #fbfbfb;
+    width: 1170px;
+    min-height: 155px;
+    margin-top: 40px;
+    color: #3c3c3c;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.comment {
+    width: 1170px;
+    min-height: 45px;
+    margin-top: 70px;
+    border-bottom: 1px solid rgba(88, 82, 82, 0.3);
+    z-index: 1;
+}
+
+
+
+.comment_text {
+    display: inline-block;
+}
+
+.btn_regist {
+    width: 90px;
+    height: 101px;
+    background-color: #a74fff;
+    border: none;
+    color: #fff;
+    /* padding: 15px 0; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.write_comment {
+    margin-top: 60px;
+
+}
+
+.btn-group {
+    position: relative;
+    left: 90%;
+
+}
+
+.btn-group a {
+    color: #3c3c3c;
+}
+
+.btn-group a:link {
+    text-decoration: none;
+
+}
+
+.update_button .btn {
+	position:relative;
+	top:50%;
+	left:55.5%;
+}

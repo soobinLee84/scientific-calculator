@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="MemberMapper">
+
+
+	<!-- 아이디 중복검사를 수행한다 -->
+    <select id="selectUserIdCount" parameterType="com.celeb.site.member.vo.MemberVo" resultType="int">
+        SELECT count(user_id) FROM user WHERE user_id=#{userId}
+    </select>
+
+    <!-- 이메일 중복검사를 수행한다 -->
+    <select id="selectEmailCount" parameterType="com.celeb.site.member.vo.MemberVo" resultType="int">
+        SELECT count(user_email) FROM user WHERE user_email=#{userEmail}
+    </select>
+    <!-- 비밀번호검사 : 회원의 일련번호와 입력한 번호가 동시에 일치되는 데이터를 count 하여 0이되면 다른번호라 간주한다. -->
+    <select id = "SelectMemberCountByPassword" parameterType="com.celeb.site.member.vo.MemberVo" resultType="int">
+    
+    </select>
+    <!-- 회원정보를 저장한다 : 가입 -->
+	<insert id="insertMember" parameterType="com.celeb.site.member.vo.MemberVo" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO user (
+			user_name, user_id, user_pw,
+			user_email, postcode, addr1, addr2, addr3, tel, reg_date
+		) VALUES (
+			#{userName}, #{userId}, password(#{userPw}),
+			#{userEmail},#{postCode},#{addr1},#{addr2},#{addr3},#{tel},now()
+		)
+	</insert>
+	
+	<!-- 일련번호에 의한 회원정보조회 -->
+	<select id ="selectMember" parameterType="com.celeb.site.member.vo.MemberVo" resultType="com.celeb.site.member.vo.MemberVo">
+	SELECT 
+		user_idx, user_name, user_id, user_pw, user_email,postcode,addr1,addr2,addr3,tel, profile_img, reg_date, edit_date
+	FROM user
+	WHERE user_idx = #{userIdx} 
+	</select>
+	
+	<!-- 아이디와 비밀번호가 일치하는 회원정보를 조회한다. -->
+	<select id = "selectLoginInfo" parameterType="com.celeb.site.member.vo.MemberVo" resultType="com.celeb.site.member.vo.MemberVo">
+		SELECT
+			user_idx, user_name, user_id, user_pw, user_email,postcode, addr1, addr2, addr3, tel
+			FROM user
+			WHERE user_id=#{userId} AND user_pw=password(#{userPw})
+			ORDER BY user_idx DESC
+			LIMIT 0,1
+	</select>
+	
+<!-- 가입한 이메일과일치하는 아이디찾기를 한다 -->
+	<select id = "findId" parameterType="com.celeb.site.member.vo.MemberVo" resultType="com.celeb.site.member.vo.MemberVo">
+		SELECT
+			user_id FROM user
+		WHERE
+			 user_email=#{userEmail}
+		LIMIT 0,1
+	</select>
+	
+	<!-- 비밀번호 갱신을 위한 update-->
+	<update id = "updatePasswordByEmail"  parameterType="com.celeb.site.member.vo.MemberVo" >
+			UPDATE user
+			SET user_pw = password(#{userPw}), edit_date = now()
+			WHERE user_email = #{userEmail} AND user_id = #{userId}
+	</update>
+	
+	<!--  회원정보 수정을 위한 update-->
+	<update id = "updateMember"  parameterType="com.celeb.site.member.vo.MemberVo" >
+			UPDATE user
+			SET user_name = #{userName}, user_email = #{userEmail},
+			 	postcode = #{postCode}, addr1 = #{addr1}, addr2 = #{addr2}, addr3 = #{addr3}, tel = #{tel},edit_date = now()
+			<if test = "newUserPw != null and newUserPw !='' ">
+				,user_pw = password(#{newUserPw})
+			</if>
+			WHERE user_idx = #{userIdx}
+	</update>
+	
+	<!-- 탈퇴를 위한 쿼리문 -->
+	<!--  탈퇴 -->
+	<delete id = "deleteMember" parameterType ="com.celeb.site.member.vo.MemberVo">
+	DELETE FROM user
+	WHERE user_id = #{userId}
+	</delete>
+	
+	<!-- 비밀번호 검사 -->
+	<!-- 회원의 일련번호와 입력한 비밀번호가 동시에 일치되는 데이터 수를 count하여 겨로가가 0인 경우 비밀번호가 잘못된 것으로 간주한다 -->
+	<select id="selectMemberPw" parameterType ="com.celeb.site.member.vo.MemberVo" resultType="int" >
+	SELECT count(user_id)
+	FROM user
+	WHERE user_id=#{userId} AND user_pw = password(#{userPw})
+	</select>
+	
+	<!-- select count(*) from user  -->
+	
+	
+
+</mapper>
